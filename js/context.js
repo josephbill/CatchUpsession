@@ -1,13 +1,15 @@
-// 1. Context in regular functions
+// 1. Context in regular 
+let name ="Joseph"
 function greet(){
-    console.log("Hello " + this.name)
+    return console.log("Hello " + this.name)
 }
+console.log(greet())
 
-const person = {
-    name: "Alice",
-    sayHello: greet
-}
-person.sayHello(); 
+// const person = {
+//     name: "Alice",
+//     sayHello: greet
+// }
+// person.sayHello(); 
 
 // context in arrow functions 
 const obj = {
@@ -35,3 +37,19 @@ function nameof(a,b,c){
 }
 
 nameof(5,6)
+
+function outerfunction(){
+    let outerVariable = "I am an outer variable"
+
+    function innerFunction(){
+        let innerVariable = "I am an inner variable"
+        console.log(outerVariable)
+        // console.log(innerVariable)
+    }
+    console.log(innerVariable)
+    innerFunction()
+}
+
+outerfunction()
+//  1. execution context is created for outerfunction 
+// 2. execution context is created for the innerfunction as well
